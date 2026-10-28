@@ -1,0 +1,127 @@
+<!doctype html>
+<!-- Supabase Auth'un e-posta bağlantılarından sonra açılan sayfa (Dashboard → Authentication →
+     URL Configuration → Site URL buraya bakar). Supabase sonucu adresin #/? kısmında gönderir:
+     type=signup|email_change|recovery, ya da error_code=otp_expired gibi bir hata.
+     Bu sayfa iki dillidir: <section lang="tr"> ve <section lang="en"> aynı dosyadadır.
+     Bir bölümü değiştirirken diğerini de aynı şekilde güncelleyin (TR ve EN birlikte).
+     Yayınlamak için: powershell -ExecutionPolicy Bypass -File Tools\publish_legal.ps1 -->
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>101 Shine – E-posta / Email</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#1d2433}h1{font-size:26px}h2{font-size:19px;margin-top:28px}
+.lang{display:flex;gap:6px;justify-content:flex-end}.lang a{padding:4px 12px;border:1px solid #c5cbd6;border-radius:6px;text-decoration:none;color:#1d2433;font-size:14px}.lang a.on{background:#1d2433;color:#fff;border-color:#1d2433}
+html.js section[lang]:not(.on){display:none}
+.st{text-align:center;margin-top:40px}.ic{width:72px;height:72px;margin:0 auto;border-radius:50%;font:bold 40px/72px system-ui,sans-serif;color:#fff;background:#2e9d5b}.ic.w{background:#d08a1c}.ic.i{background:#3b6fd4}
+.dim{color:#5d6678;font-size:14px}
+html:not(.js) .st:not([data-d=other]),html.js .st:not(.on){display:none}</style>
+</head><body>
+<nav class="lang"><a href="?lang=tr" data-l="tr">TR</a><a href="?lang=en" data-l="en">EN</a></nav>
+
+<section lang="tr" data-title="101 Shine – E-posta">
+<div class="st" data-d="verified"><div class="ic">✓</div>
+<h1>E-postan doğrulandı</h1>
+<p>Hesabın hazır. 101 Shine'a dön, <b>E-POSTA İLE GİRİŞ → GİRİŞ</b> sekmesinden e-postan ve şifrenle giriş yap.</p>
+<p class="dim">Bu sayfayı kapatabilirsin.</p></div>
+
+<div class="st" data-d="linked"><div class="ic">✓</div>
+<h1>E-posta adresin bağlandı</h1>
+<p>Hesabın artık kalıcı, ilerlemen korunuyor. 101 Shine'a dönebilirsin.</p>
+<p class="dim">Bu sayfayı kapatabilirsin.</p></div>
+
+<div class="st" data-d="half"><div class="ic i">✓</div>
+<h1>İlk onay alındı</h1>
+<p>Değişikliği tamamlamak için diğer e-posta adresine gelen bağlantıya da tıkla.</p></div>
+
+<div class="st" data-d="recovery"><div class="ic i">i</div>
+<h1>Şifre sıfırlama bağlantısı</h1>
+<p>Yeni şifre bu sayfadan henüz belirlenemiyor. 101 Shine'da <b>E-POSTA İLE GİRİŞ → KODLA GİRİŞ</b> sekmesinden e-postana gelen 6 haneli kodla şifresiz giriş yapabilirsin.</p></div>
+
+<div class="st" data-d="expired"><div class="ic w">!</div>
+<h1>Bağlantının süresi dolmuş</h1>
+<p>Bu bağlantı geçersiz ya da daha önce kullanılmış. Hesabını zaten doğruladıysan 101 Shine'da doğrudan giriş yapabilirsin.</p>
+<p>Doğrulamadıysan oyunda <b>E-POSTA İLE GİRİŞ → KAYIT OL</b> sekmesinden aynı e-postayla tekrar kayıt ol; yeni bir bağlantı gönderilir.</p></div>
+
+<div class="st" data-d="error"><div class="ic w">!</div>
+<h1>Bir sorun oluştu</h1>
+<p>İşlem tamamlanamadı. 101 Shine'a dönüp tekrar dene.</p>
+<p class="dim" data-err></p>
+<p class="dim">Sorun sürerse: <a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></p></div>
+
+<div class="st" data-d="other">
+<h1>101 Shine</h1>
+<p>Bu sayfa 101 Shine'ın e-posta bağlantıları içindir. Oyuna dönüp devam edebilirsin.</p></div>
+<p class="dim" style="text-align:center;margin-top:40px"><a href="gizlilik.html" data-page>Gizlilik Politikası</a></p>
+</section>
+
+<section lang="en" data-title="101 Shine – Email">
+<div class="st" data-d="verified"><div class="ic">✓</div>
+<h1>Your email is verified</h1>
+<p>Your account is ready. Go back to 101 Shine and sign in with your email and password from <b>SIGN IN WITH EMAIL → SIGN IN</b>.</p>
+<p class="dim">You can close this page.</p></div>
+
+<div class="st" data-d="linked"><div class="ic">✓</div>
+<h1>Your email is linked</h1>
+<p>Your account is now permanent and your progress is kept. You can go back to 101 Shine.</p>
+<p class="dim">You can close this page.</p></div>
+
+<div class="st" data-d="half"><div class="ic i">✓</div>
+<h1>First confirmation received</h1>
+<p>To finish the change, also click the link sent to your other email address.</p></div>
+
+<div class="st" data-d="recovery"><div class="ic i">i</div>
+<h1>Password reset link</h1>
+<p>A new password cannot be set on this page yet. In 101 Shine, use <b>SIGN IN WITH EMAIL → SIGN IN WITH CODE</b> to sign in without a password using the 6-digit code sent to your email.</p></div>
+
+<div class="st" data-d="expired"><div class="ic w">!</div>
+<h1>This link has expired</h1>
+<p>This link is invalid or has already been used. If you have already verified your account, you can sign in to 101 Shine directly.</p>
+<p>If not, sign up again with the same email from <b>SIGN IN WITH EMAIL → SIGN UP</b> in the game; a new link will be sent.</p></div>
+
+<div class="st" data-d="error"><div class="ic w">!</div>
+<h1>Something went wrong</h1>
+<p>The action could not be completed. Go back to 101 Shine and try again.</p>
+<p class="dim" data-err></p>
+<p class="dim">If the problem persists: <a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></p></div>
+
+<div class="st" data-d="other">
+<h1>101 Shine</h1>
+<p>This page is for 101 Shine's email links. You can go back to the game and continue.</p></div>
+<p class="dim" style="text-align:center;margin-top:40px"><a href="gizlilik.html" data-page>Privacy Policy</a></p>
+</section>
+
+<script>
+(function () {
+  // Supabase sends the result in the fragment (and errors sometimes in the query): merge both.
+  var p = {};
+  (location.search.slice(1) + "&" + location.hash.slice(1)).split("&").forEach(function (kv) {
+    var i = kv.indexOf("="); if (i <= 0) return;
+    try { p[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1).replace(/\+/g, " ")); } catch (e) { }
+  });
+  var states = { verified: 1, linked: 1, half: 1, recovery: 1, expired: 1, error: 1, other: 1 };
+  var d = p.error_code === "otp_expired" ? "expired"
+        : p.error || p.error_code ? "error"
+        : /^(signup|email|invite)$/.test(p.type) ? "verified"
+        : p.type === "email_change" ? "linked"
+        : p.type === "recovery" ? "recovery"
+        : p.message ? "half"
+        : states[p.d] ? p.d : "other";
+
+  var q = location.search.match(/[?&]lang=(tr|en)/), h = location.hash.match(/^#(tr|en)$/);
+  var l = q ? q[1] : h ? h[1] : ((navigator.language || "").toLowerCase().indexOf("tr") === 0 ? "tr" : "en");
+  // drop the tokens from the address bar / history; keep only the language and the state
+  try { history.replaceState(null, "", location.pathname + "?lang=" + l + "&d=" + d); } catch (e) { }
+
+  var docEl = document.documentElement; docEl.className += " js"; docEl.lang = l;
+  document.querySelectorAll("section[lang]").forEach(function (s) {
+    if (s.lang === l) { s.classList.add("on"); document.title = s.getAttribute("data-title"); }
+  });
+  document.querySelectorAll(".st[data-d=" + d + "]").forEach(function (e) { e.classList.add("on"); });
+  if (p.error_description) document.querySelectorAll("[data-err]").forEach(function (e) { e.textContent = p.error_description; });
+  document.querySelectorAll(".lang a").forEach(function (a) {
+    a.href = "?lang=" + a.getAttribute("data-l") + "&d=" + d;
+    if (a.getAttribute("data-l") === l) a.classList.add("on");
+  });
+  document.querySelectorAll("a[data-page]").forEach(function (a) { a.href = a.getAttribute("href").split("?")[0] + "?lang=" + l; });
+})();
+</script>
+</body></html>
