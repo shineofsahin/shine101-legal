@@ -1,8 +1,16 @@
 <!doctype html>
+<!-- Bu sayfa iki dillidir: <section lang="tr"> ve <section lang="en"> aynı dosyadadır.
+     Bir bölümü değiştirirken diğerini de aynı şekilde güncelleyin (TR ve EN birlikte).
+     Yayınlamak için: powershell -ExecutionPolicy Bypass -File Tools\publish_legal.ps1 -->
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>101 Shine – Hesap Silme</title>
-<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#1d2433}h1{font-size:26px}h2{font-size:19px;margin-top:28px}</style>
+<title>101 Shine – Hesap Silme / Account Deletion</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#1d2433}h1{font-size:26px}h2{font-size:19px;margin-top:28px}
+.lang{display:flex;gap:6px;justify-content:flex-end}.lang a{padding:4px 12px;border:1px solid #c5cbd6;border-radius:6px;text-decoration:none;color:#1d2433;font-size:14px}.lang a.on{background:#1d2433;color:#fff;border-color:#1d2433}
+html.js section[lang]:not(.on){display:none}</style>
 </head><body>
+<nav class="lang"><a href="?lang=tr" data-l="tr">TR</a><a href="?lang=en" data-l="en">EN</a></nav>
+
+<section lang="tr" data-title="101 Shine – Hesap Silme">
 <h1>101 Shine – Hesabını sil</h1>
 
 <h2>Oyun içinden (anında)</h2>
@@ -21,4 +29,41 @@
 <li><b>Anonim kalır:</b> Google Play satın alma kayıtları (muhasebe ve iade yükümlülüğü, kişiyle ilişkisi kesilir), anonim kullanım olayları ve diğer oyuncuların maç geçmişindeki satırlar ("Silinmiş oyuncu" adıyla).</li>
 </ul>
 <p>Satın alımlar geri verilmez; silinen hesap geri getirilemez.</p>
+<p><a href="gizlilik.html" data-page>Gizlilik Politikası</a></p>
+</section>
+
+<section lang="en" data-title="101 Shine – Account Deletion">
+<h1>101 Shine – Delete your account</h1>
+
+<h2>In the game (immediate)</h2>
+<ol>
+<li>Open 101 Shine and tap the gear icon at the top right of the main menu (Settings).</li>
+<li>Tap <b>Delete My Account</b> at the bottom.</li>
+<li>After two confirmations your account and personal data are deleted immediately.</li>
+</ol>
+
+<h2>If you cannot access the game</h2>
+<p>Send an email with the subject "Account deletion" to <b><a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></b>. Include your username and friend code (shown on your profile) or the email linked to your account. Your request is processed within 30 days and you are notified of the result by email.</p>
+
+<h2>What is deleted and what is kept</h2>
+<ul>
+<li><b>Deleted:</b> account and sign-in details, username, avatar, gold, diamonds, level, cosmetics, friends, notifications, chat and league / tournament history.</li>
+<li><b>Kept anonymously:</b> Google Play purchase records (for accounting and refund obligations, with the link to you removed), anonymous usage events, and rows in other players' match history (shown as "Deleted player").</li>
+</ul>
+<p>Purchases are not refunded; a deleted account cannot be restored.</p>
+<p><a href="gizlilik.html" data-page>Privacy Policy</a></p>
+</section>
+
+<script>
+(function () {
+  var q = location.search.match(/[?&]lang=(tr|en)/), h = location.hash.match(/^#(tr|en)$/);
+  var l = q ? q[1] : h ? h[1] : ((navigator.language || "").toLowerCase().indexOf("tr") === 0 ? "tr" : "en");
+  var d = document.documentElement; d.className += " js"; d.lang = l;
+  document.querySelectorAll("section[lang]").forEach(function (s) {
+    if (s.lang === l) { s.classList.add("on"); document.title = s.getAttribute("data-title"); }
+  });
+  document.querySelectorAll(".lang a").forEach(function (a) { if (a.getAttribute("data-l") === l) a.classList.add("on"); });
+  document.querySelectorAll("a[data-page]").forEach(function (a) { a.href = a.getAttribute("href").split("?")[0] + "?lang=" + l; });
+})();
+</script>
 </body></html>

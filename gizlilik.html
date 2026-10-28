@@ -1,10 +1,18 @@
 <!doctype html>
+<!-- Bu sayfa iki dillidir: <section lang="tr"> ve <section lang="en"> aynı dosyadadır.
+     Bir bölümü değiştirirken diğerini de aynı şekilde güncelleyin (TR ve EN birlikte).
+     Yayınlamak için: powershell -ExecutionPolicy Bypass -File Tools\publish_legal.ps1 -->
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>101 Shine – Gizlilik Politikası</title>
-<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#1d2433}h1{font-size:26px}h2{font-size:19px;margin-top:28px}</style>
+<title>101 Shine – Gizlilik Politikası / Privacy Policy</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#1d2433}h1{font-size:26px}h2{font-size:19px;margin-top:28px}
+.lang{display:flex;gap:6px;justify-content:flex-end}.lang a{padding:4px 12px;border:1px solid #c5cbd6;border-radius:6px;text-decoration:none;color:#1d2433;font-size:14px}.lang a.on{background:#1d2433;color:#fff;border-color:#1d2433}
+html.js section[lang]:not(.on){display:none}</style>
 </head><body>
+<nav class="lang"><a href="?lang=tr" data-l="tr">TR</a><a href="?lang=en" data-l="en">EN</a></nav>
+
+<section lang="tr" data-title="101 Shine – Gizlilik Politikası">
 <h1>101 Shine – Gizlilik Politikası</h1>
-<p>Son güncelleme: 27 Ekim 2026. İletişim: <b><a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></b></p>
+<p>Son güncelleme: 28 Ekim 2026. İletişim: <b><a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></b></p>
 
 <h2>Topladığımız veriler</h2>
 <ul>
@@ -28,11 +36,62 @@
 <p>Kullanıcı adın, avatarın, seviyen ve lig puanın diğer oyunculara görünür.</p>
 
 <h2>Saklama ve silme</h2>
-<p>Verilerin hesabın açık olduğu sürece saklanır. Hesabını oyun içinden <b>Ayarlar → Hesabımı Sil</b> ile istediğin an silebilirsin; kişisel verilerin hemen silinir. Muhasebe ve iade yükümlülükleri için satın alma kayıtları kişiyle ilişkisi kesilerek, anonim kullanım olayları da anonim olarak kalır. Oyuna erişemiyorsan: <a href="hesap-silme.html">web'den hesap silme talebi</a>.</p>
+<p>Verilerin hesabın açık olduğu sürece saklanır. Hesabını oyun içinden <b>Ayarlar → Hesabımı Sil</b> ile istediğin an silebilirsin; kişisel verilerin hemen silinir. Muhasebe ve iade yükümlülükleri için satın alma kayıtları kişiyle ilişkisi kesilerek, anonim kullanım olayları da anonim olarak kalır. Oyuna erişemiyorsan: <a href="hesap-silme.html" data-page>web'den hesap silme talebi</a>.</p>
 
 <h2>Çocuklar</h2>
 <p>Oyun 13 yaş altına yönelik değildir.</p>
 
 <h2>Haklarınız</h2>
 <p>KVKK ve GDPR kapsamında verilerine erişme, düzeltme ve silme hakkın var. Talepler için yukarıdaki e-postaya yaz.</p>
+<p><a href="kosullar.html" data-page>Kullanım Koşulları</a></p>
+</section>
+
+<section lang="en" data-title="101 Shine – Privacy Policy">
+<h1>101 Shine – Privacy Policy</h1>
+<p>Last updated: 28 October 2026. Contact: <b><a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></b></p>
+
+<h2>Data we collect</h2>
+<ul>
+<li><b>Account:</b> a random ID for guest accounts; your email address if you sign in with email; your Google account's email and ID if you sign in with Google.</li>
+<li><b>Game data:</b> username, avatar, level, gold / diamond balance, match results, league and tournament records, friends list, owned cosmetics.</li>
+<li><b>Chat and reports:</b> messages you send in table chat, reports you send and reports made about you.</li>
+<li><b>Purchases:</b> Google Play order number and product ID (we never receive your card details; Google processes them).</li>
+<li><b>Usage data:</b> anonymous events such as screens opened, match length and waiting times. You can turn this off with "Send Usage Data" in Settings.</li>
+<li><b>Ads:</b> when you watch a rewarded ad, the ad provider (Unity LevelPlay and its partner networks) may process your device's advertising ID. In the EU / UK we ask for your consent first.</li>
+</ul>
+
+<h2>How we use data</h2>
+<p>To run the game, keep your account and progress, provide matchmaking and rankings, prevent cheating and abuse, verify purchases and improve the game. We do not sell your data.</p>
+
+<h2>Who we share it with</h2>
+<ul>
+<li>Supabase (server and database, EU – Ireland region)</li>
+<li>Google (Sign in with Google, Google Play billing)</li>
+<li>Unity LevelPlay and partner ad networks (only when you watch a rewarded ad)</li>
+</ul>
+<p>Your username, avatar, level and league points are visible to other players.</p>
+
+<h2>Retention and deletion</h2>
+<p>Your data is kept for as long as your account exists. You can delete your account at any time in the game with <b>Settings → Delete My Account</b>; your personal data is deleted immediately. For accounting and refund obligations, purchase records are kept with the link to you removed, and anonymous usage events stay anonymous. If you cannot access the game: <a href="hesap-silme.html" data-page>request account deletion on the web</a>.</p>
+
+<h2>Children</h2>
+<p>The game is not directed at children under 13.</p>
+
+<h2>Your rights</h2>
+<p>Under the GDPR and Turkish data protection law (KVKK) you have the right to access, correct and delete your data. Send requests to the email above.</p>
+<p><a href="kosullar.html" data-page>Terms of Use</a></p>
+</section>
+
+<script>
+(function () {
+  var q = location.search.match(/[?&]lang=(tr|en)/), h = location.hash.match(/^#(tr|en)$/);
+  var l = q ? q[1] : h ? h[1] : ((navigator.language || "").toLowerCase().indexOf("tr") === 0 ? "tr" : "en");
+  var d = document.documentElement; d.className += " js"; d.lang = l;
+  document.querySelectorAll("section[lang]").forEach(function (s) {
+    if (s.lang === l) { s.classList.add("on"); document.title = s.getAttribute("data-title"); }
+  });
+  document.querySelectorAll(".lang a").forEach(function (a) { if (a.getAttribute("data-l") === l) a.classList.add("on"); });
+  document.querySelectorAll("a[data-page]").forEach(function (a) { a.href = a.getAttribute("href").split("?")[0] + "?lang=" + l; });
+})();
+</script>
 </body></html>

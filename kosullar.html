@@ -1,10 +1,18 @@
 <!doctype html>
+<!-- Bu sayfa iki dillidir: <section lang="tr"> ve <section lang="en"> aynı dosyadadır.
+     Bir bölümü değiştirirken diğerini de aynı şekilde güncelleyin (TR ve EN birlikte).
+     Yayınlamak için: powershell -ExecutionPolicy Bypass -File Tools\publish_legal.ps1 -->
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>101 Shine – Kullanım Koşulları</title>
-<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#1d2433}h1{font-size:26px}h2{font-size:19px;margin-top:28px}</style>
+<title>101 Shine – Kullanım Koşulları / Terms of Use</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#1d2433}h1{font-size:26px}h2{font-size:19px;margin-top:28px}
+.lang{display:flex;gap:6px;justify-content:flex-end}.lang a{padding:4px 12px;border:1px solid #c5cbd6;border-radius:6px;text-decoration:none;color:#1d2433;font-size:14px}.lang a.on{background:#1d2433;color:#fff;border-color:#1d2433}
+html.js section[lang]:not(.on){display:none}</style>
 </head><body>
+<nav class="lang"><a href="?lang=tr" data-l="tr">TR</a><a href="?lang=en" data-l="en">EN</a></nav>
+
+<section lang="tr" data-title="101 Shine – Kullanım Koşulları">
 <h1>101 Shine – Kullanım Koşulları</h1>
-<p>Son güncelleme: 27 Ekim 2026. İletişim: <b><a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></b></p>
+<p>Son güncelleme: 28 Ekim 2026. İletişim: <b><a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></b></p>
 
 <h2>Sanal para</h2>
 <p>Altın ve elmas yalnız oyun içinde kullanılan sanal öğelerdir; gerçek paraya, mala ya da hizmete çevrilemez, oyun dışında satılamaz ve devredilemez. Oyun gerçek para kazandırmaz.</p>
@@ -23,5 +31,43 @@
 <p>Oyunu kesintisiz sunmaya çalışırız ama bakım, hata ya da bağlantı sorunlarında kesinti olabilir. Oyun kurallarını, ekonomiyi ve içerikleri değiştirme hakkımız saklıdır.</p>
 
 <h2>Hesap</h2>
-<p>Hesabını istediğin an Ayarlar → Hesabımı Sil ile silebilirsin. Ayrıntılar: <a href="gizlilik.html">Gizlilik Politikası</a>.</p>
+<p>Hesabını istediğin an Ayarlar → Hesabımı Sil ile silebilirsin. Ayrıntılar: <a href="gizlilik.html" data-page>Gizlilik Politikası</a>.</p>
+</section>
+
+<section lang="en" data-title="101 Shine – Terms of Use">
+<h1>101 Shine – Terms of Use</h1>
+<p>Last updated: 28 October 2026. Contact: <b><a href="mailto:shine21games@gmail.com">shine21games@gmail.com</a></b></p>
+
+<h2>Virtual currency</h2>
+<p>Gold and diamonds are virtual items used only inside the game; they cannot be exchanged for real money, goods or services, and cannot be sold or transferred outside the game. The game does not pay out real money.</p>
+
+<h2>Purchases</h2>
+<p>Purchases are made through Google Play and are subject to Google Play's refund policy. Purchased virtual items are a licence to use, not property.</p>
+
+<h2>Code of conduct</h2>
+<ul>
+<li>Insults, harassment, hate speech, spam and sharing personal information are not allowed.</li>
+<li>Cheating, automation, exploiting bugs, moving gold between multiple accounts and buying or selling gold are not allowed.</li>
+<li>Accounts that break these rules are warned, restricted or closed; in that case balances are not refunded.</li>
+</ul>
+
+<h2>Service</h2>
+<p>We try to keep the game running without interruption, but maintenance, bugs or connection problems may cause outages. We reserve the right to change game rules, the economy and content.</p>
+
+<h2>Account</h2>
+<p>You can delete your account at any time with Settings → Delete My Account. Details: <a href="gizlilik.html" data-page>Privacy Policy</a>.</p>
+</section>
+
+<script>
+(function () {
+  var q = location.search.match(/[?&]lang=(tr|en)/), h = location.hash.match(/^#(tr|en)$/);
+  var l = q ? q[1] : h ? h[1] : ((navigator.language || "").toLowerCase().indexOf("tr") === 0 ? "tr" : "en");
+  var d = document.documentElement; d.className += " js"; d.lang = l;
+  document.querySelectorAll("section[lang]").forEach(function (s) {
+    if (s.lang === l) { s.classList.add("on"); document.title = s.getAttribute("data-title"); }
+  });
+  document.querySelectorAll(".lang a").forEach(function (a) { if (a.getAttribute("data-l") === l) a.classList.add("on"); });
+  document.querySelectorAll("a[data-page]").forEach(function (a) { a.href = a.getAttribute("href").split("?")[0] + "?lang=" + l; });
+})();
+</script>
 </body></html>
