@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- Paylaşılan profil bağlantısı: https://shineofsahin.github.io/shine101-legal/p/?c=ARKADASKODU
+     Sunucu adresini göstermemek için Supabase "p" fonksiyonunun işini burada tarayıcı yapar:
+     Android -> oyunu shine101://profile?c=KOD ile açan intent:// (oyun yoksa Play Store'a düşer),
+     diğer cihazlar -> Play Store düğmesi. Önizleme etiketleri durağandır (WhatsApp JS çalıştırmaz). -->
+<html lang="tr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>101 Shine – Profil</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="101 Shine">
+<meta property="og:title" content="101 Shine – Benimle 101 Okey oyna!">
+<meta property="og:description" content="Profilime göz at, arkadaş ol ve aynı masada oynayalım.">
+<meta property="og:image" content="https://shineofsahin.github.io/shine101-legal/p/onizleme.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="ikon.png">
+<style>
+  :root { --bg:#0f3d2e; --card:#15513d; --text:#f4f1e6; --muted:#c9d8cf; --accent:#f2b632; --btn2:#2f7fd6; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:16px;
+         background:radial-gradient(circle at 50% 30%, #1b6b4f, var(--bg)); color:var(--text);
+         font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .card { width:100%; max-width:380px; background:var(--card); border-radius:20px; padding:28px 22px; text-align:center;
+          box-shadow:0 12px 40px rgba(0,0,0,.35); }
+  img { width:96px; height:96px; border-radius:22px; }
+  h1 { font-size:22px; margin:14px 0 6px; }
+  p { color:var(--muted); margin:0 0 18px; line-height:1.45; }
+  .code { display:inline-block; font-size:20px; letter-spacing:2px; font-weight:700; background:rgba(0,0,0,.25);
+          padding:8px 16px; border-radius:10px; margin-bottom:20px; }
+  a.btn { display:block; padding:14px; border-radius:12px; font-weight:700; font-size:17px; text-decoration:none; margin-top:10px; }
+  .open { background:var(--accent); color:#3a2600; }
+  .store { background:var(--btn2); color:#fff; }
+  .hidden { display:none; }
+</style>
+</head><body>
+<main class="card">
+  <img src="ikon.png" alt="101 Shine">
+  <h1 id="t">101 Shine</h1>
+  <p id="d">Profili görmek için oyunu aç.</p>
+  <div id="codeBox" class="code hidden"></div>
+  <a id="open" class="btn open hidden" href="#">Oyunda aç</a>
+  <a id="store" class="btn store" href="https://play.google.com/store/apps/details?id=com.shine.okey101">Google Play'den indir</a>
+</main>
+<script>
+(function () {
+  var PKG = "com.shine.okey101";
+  var code = (new URLSearchParams(location.search).get("c") || "").replace(/[^0-9A-Za-z]/g, "").slice(0, 20);
+  var en = !/^tr/i.test(navigator.language || "tr");
+  var store = "https://play.google.com/store/apps/details?id=" + PKG +
+              (code ? "&referrer=" + encodeURIComponent("profile_" + code) : "");
+  var $ = function (id) { return document.getElementById(id); };
+
+  if (en) {
+    $("d").textContent = "Open the game to see this profile.";
+    $("open").textContent = "Open in game";
+    $("store").textContent = "Get it on Google Play";
+    document.documentElement.lang = "en";
+  }
+  $("store").href = store;
+  if (code) { $("codeBox").textContent = (en ? "Friend code: " : "Arkadaş kodu: ") + code; $("codeBox").classList.remove("hidden"); }
+
+  if (code && /android/i.test(navigator.userAgent)) {
+    var intent = "intent://profile?c=" + code + "#Intent;scheme=shine101;package=" + PKG +
+                 ";S.browser_fallback_url=" + encodeURIComponent(store) + ";end";
+    $("open").href = intent;
+    $("open").classList.remove("hidden");
+    // bazı tarayıcılar dokunuşsuz yönlendirmeyi engeller; o zaman "Oyunda aç" düğmesi kalır
+    location.replace(intent);
+  }
+})();
+</script>
+</body></html>
