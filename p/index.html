@@ -2,7 +2,9 @@
 <!-- Paylaşılan profil bağlantısı: https://shineofsahin.github.io/shine101-legal/p/?c=ARKADASKODU
      Sunucu adresini göstermemek için Supabase "p" fonksiyonunun işini burada tarayıcı yapar:
      Android -> oyunu shine101://profile?c=KOD ile açan intent:// (oyun yoksa Play Store'a düşer),
-     diğer cihazlar -> Play Store düğmesi. Önizleme etiketleri durağandır (WhatsApp JS çalıştırmaz). -->
+     diğer cihazlar -> Play Store düğmesi. Önizleme etiketleri durağandır (WhatsApp JS çalıştırmaz).
+     Davet (216_referral_instant.sql): sayfa açılınca referral_click(kod, platform) tıklamayı sunucuya yazar;
+     oyunu aynı internetten indirip açan yeni oyuncu kod girmeden davet edenle eşleşir (iOS dahil). -->
 <html lang="tr"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -43,10 +45,15 @@
   <div id="codeBox" class="code hidden"></div>
   <a id="open" class="btn open hidden" href="#">Oyunda aç</a>
   <a id="store" class="btn store" href="https://play.google.com/store/apps/details?id=com.shine.okey101">Google Play'den indir</a>
+  <a id="appstore" class="btn store hidden" href="#">App Store'dan indir</a>
 </main>
 <script>
 (function () {
   var PKG = "com.shine.okey101";
+  var APPSTORE_ID = "";   // iOS yayınlanınca App Store numarası (VersionGate.AppStoreId ile aynı)
+  var API = "https://ymdxgffemrbincamyffl.supabase.co/rest/v1/rpc/referral_click", KEY = "sb_publishable_3fx7CmnzInktIBr6t1tQEg_k6pfbm5l";
+  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (/macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+  var android = /android/i.test(navigator.userAgent);
   var code = (new URLSearchParams(location.search).get("c") || "").replace(/[^0-9A-Za-z]/g, "").slice(0, 20);
   var en = !/^tr/i.test(navigator.language || "tr");
   var store = "https://play.google.com/store/apps/details?id=" + PKG +
@@ -60,15 +67,35 @@
     document.documentElement.lang = "en";
   }
   $("store").href = store;
+  // davet tıklamasını kaydet (yönlendirmeden önce; hata sessiz geçer)
+  function logClick(done) {
+    if (!code || !window.fetch) { done(); return; }
+    var fin = false, end = function () { if (!fin) { fin = true; done(); } };
+    try {
+      fetch(API, { method: "POST", keepalive: true,
+                   headers: { "apikey": KEY, "Content-Type": "application/json", "x-app-platform": "web" },
+                   body: JSON.stringify({ p_code: code, p_platform: ios ? "ios" : android ? "android" : "other" }) })
+        .then(end, end);
+    } catch (e) { end(); }
+    setTimeout(end, 1500);
+  }
+  if (ios && APPSTORE_ID) {
+    $("appstore").href = "https://apps.apple.com/app/id" + APPSTORE_ID;
+    $("appstore").classList.remove("hidden");
+    $("store").classList.add("hidden");
+  }
+  if (en) $("appstore").textContent = "Download on the App Store";
   if (code) { $("codeBox").textContent = (en ? "Friend code: " : "Arkadaş kodu: ") + code; $("codeBox").classList.remove("hidden"); }
 
-  if (code && /android/i.test(navigator.userAgent)) {
+  if (code && android) {
     var intent = "intent://profile?c=" + code + "#Intent;scheme=shine101;package=" + PKG +
                  ";S.browser_fallback_url=" + encodeURIComponent(store) + ";end";
     $("open").href = intent;
     $("open").classList.remove("hidden");
     // bazı tarayıcılar dokunuşsuz yönlendirmeyi engeller; o zaman "Oyunda aç" düğmesi kalır
-    location.replace(intent);
+    logClick(function () { location.replace(intent); });
+  } else {
+    logClick(function () {});
   }
 })();
 </script>

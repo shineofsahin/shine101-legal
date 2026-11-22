@@ -22,6 +22,7 @@ html.js section[lang]:not(.on){display:none}</style>
 <li><b>Satın alımlar:</b> Google Play sipariş numarası ve ürün kimliği (kart bilgileri bize ulaşmaz, Google işler).</li>
 <li><b>Kullanım verisi:</b> açılan ekranlar, maç süreleri, bekleme süreleri gibi anonim olaylar. Ayarlar'daki "Kullanım Verisi Gönder" ile kapatılabilir.</li>
 <li><b>Reklamlar:</b> ödüllü reklam izlediğinde reklam sağlayıcısı (Unity LevelPlay ve bağlı ağlar) cihazının reklam kimliğini işleyebilir. AB / İngiltere'de bunun için önce onayın istenir.</li>
+<li><b>Sesli sohbet:</b> yalnız Ayarlar'dan açtığında ve sesli bir masada bas-konuş düğmesine basılı tuttuğunda sesin masadaki diğer oyunculara canlı iletilir (Unity Vivox). Ses <b>kaydedilmez</b> ve saklanmaz; yalnız hangi masada sese katıldığın ve sesli sohbet şikâyetleri (kategori, masa, tarih) kötüye kullanımı önlemek için tutulur. Mikrofon izni ilk basışta istenir, reddedersen yalnız dinlersin.</li>
 </ul>
 
 <h2>Verileri ne için kullanıyoruz</h2>
@@ -32,6 +33,7 @@ html.js section[lang]:not(.on){display:none}</style>
 <li>Supabase (sunucu ve veritabanı, AB – İrlanda bölgesi)</li>
 <li>Google (Google ile giriş, Google Play faturalandırma)</li>
 <li>Unity LevelPlay ve bağlı reklam ağları (yalnız ödüllü reklam izlediğinde)</li>
+<li>Unity Vivox (yalnız sesli masada sesli sohbeti açtığında; ses Avrupa Birliği dışındaki sunucular üzerinden de iletilebilir)</li>
 </ul>
 <p>Kullanıcı adın, avatarın, seviyen ve lig puanın diğer oyunculara görünür.</p>
 
@@ -58,6 +60,7 @@ html.js section[lang]:not(.on){display:none}</style>
 <li><b>Purchases:</b> Google Play order number and product ID (we never receive your card details; Google processes them).</li>
 <li><b>Usage data:</b> anonymous events such as screens opened, match length and waiting times. You can turn this off with "Send Usage Data" in Settings.</li>
 <li><b>Ads:</b> when you watch a rewarded ad, the ad provider (Unity LevelPlay and its partner networks) may process your device's advertising ID. In the EU / UK we ask for your consent first.</li>
+<li><b>Voice chat:</b> only when you turn it on in Settings and hold the push-to-talk button at a voice table, your voice is streamed live to the other players at the table (Unity Vivox). Audio is <b>not recorded</b> or stored; we only keep which tables you joined voice at and voice chat reports (category, table, date) to prevent abuse. The microphone permission is asked on your first press; if you refuse, you can only listen.</li>
 </ul>
 
 <h2>How we use data</h2>
@@ -67,6 +70,7 @@ html.js section[lang]:not(.on){display:none}</style>
 <ul>
 <li>Supabase (server and database, EU – Ireland region)</li>
 <li>Google (Sign in with Google, Google Play billing)</li>
+<li>Unity Vivox (only when you turn on voice chat at a voice table; audio may be relayed through servers outside the EU)</li>
 <li>Unity LevelPlay and partner ad networks (only when you watch a rewarded ad)</li>
 </ul>
 <p>Your username, avatar, level and league points are visible to other players.</p>
